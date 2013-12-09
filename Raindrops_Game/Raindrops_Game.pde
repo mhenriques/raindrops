@@ -1,22 +1,24 @@
-int n=200;
-Raindrop[] r1=new Raindrop[n];
-Catcher circle;
+int score = 0;
+Raindrop[] r = new Raindrop[100];
+Catcher catcher;
+
 void setup() {
-  size(600, 600);
-  for (int i=0; i<n; i++) {
-    r1[i]=new Raindrop();
+  size(500,700);
+  for (int i = 0; i < r.length; i++) {
+    r[i] = new Raindrop();
   } 
-  circle= new Catcher();
+  catcher = new Catcher();
 }
 
 void draw() {
-  background(0, 50, 100);
-  fill(255);
-  circle.display();
-  for (int i=0; i<n; i++) {
-    r1[i].display();
-    r1[i].move();
-    r1[i].ChangeSize();
-  }
+  println("The score is: " + score);
+  background(200,230,255);
+  for (int i = 0; i < r.length; i++) {
+    r[i].display();
+    r[i].drop();
+    catcher.catchDrop(r[i]);
+  } 
+  catcher.display();
+  catcher.update();
 }
 
