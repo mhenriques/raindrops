@@ -15,7 +15,7 @@ void draw() {
   background(200,230,255);
   for (int i = 0; i < r.length; i++) {
     r[i].display();
-    r[i].drop();
+    r[i].move();
     catcher.catchDrop(r[i]);
   } 
   catcher.display();

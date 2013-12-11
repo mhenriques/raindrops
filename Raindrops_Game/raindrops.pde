@@ -5,7 +5,7 @@ class Raindrop {
 
   Raindrop() {
     loc = new PVector(random(width), random(height));
-    vel = PVector.random2D();
+    vel = new PVector(0,2);
     if (vel.y<0) {
       vel.y*=-1;
     }
