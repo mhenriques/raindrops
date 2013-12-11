@@ -3,8 +3,8 @@ class Catcher {
   int d;
 
   Catcher() {
-    loc = new PVector(mouseX, height-d);
-    d = 30;
+    loc = new PVector(mouseX, mouseY);
+    d = 50;
   }
 
   void display() {
@@ -12,7 +12,7 @@ class Catcher {
   }
 
   void update() {
-    loc.set(mouseX, height-d);
+    loc.set(mouseX, mouseY);
   }
   void catchDrop(Raindrop drop) {
     if (loc.dist(drop.loc) < d/2 + drop.d/2) {

@@ -1,9 +1,13 @@
 int score = 0;
+int currentTime;
+int oldTime;
+int timeChange;
+int index = 0;
 Raindrop[] r = new Raindrop[100];
 Catcher catcher;
 
 void setup() {
-  size(500,700);
+  size(500, 700);
   for (int i = 0; i < r.length; i++) {
     r[i] = new Raindrop();
   } 
@@ -11,14 +15,21 @@ void setup() {
 }
 
 void draw() {
-  println("The score is: " + score);
-  background(200,230,255);
-  for (int i = 0; i < r.length; i++) {
+  background(20, 115, 250);
+  for (int i = 0; i < index; i++) {
     r[i].display();
     r[i].move();
     catcher.catchDrop(r[i]);
   } 
   catcher.display();
   catcher.update();
+  currentTime = millis();
+  timeChange = currentTime - oldTime;
+  if (timeChange >= 2000) {
+    if (index<r.length) {
+      index++;
+    }
+    oldTime=currentTime;
+  }
 }
 

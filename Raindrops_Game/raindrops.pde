@@ -4,12 +4,12 @@ class Raindrop {
   int d;
 
   Raindrop() {
-    loc = new PVector(random(width), random(height));
-    vel = new PVector(0,2);
+    loc = new PVector(random(width), d);
+    vel = new PVector(0, 2);
     if (vel.y<0) {
       vel.y*=-1;
     }
-    d=5;
+    d=10;
   }
 
   void display() {
@@ -47,3 +47,4 @@ class Raindrop {
     }
   }
 }
+
