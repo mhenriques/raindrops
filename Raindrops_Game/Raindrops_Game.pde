@@ -1,4 +1,5 @@
-int score = 0;
+
+int score;
 int currentTime;
 int oldTime;
 int timeChange;
@@ -31,5 +32,6 @@ void draw() {
     }
     oldTime=currentTime;
   }
+  text(" "+score, width*.9, height*.9);
 }
 
