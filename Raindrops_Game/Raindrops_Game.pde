@@ -3,7 +3,7 @@ int currentTime;  //declare variable currentTime
 int oldTime;   //declare variable oldTime 
 int timeChange;  //declare variable timeChange
 int index;  //declare variable index
-int n = 20;  //declare variable n and define it to the number of raindrops you would like in the array
+int n = 100;  //declare variable n and define it to the number of raindrops you would like in the array
 Raindrop[] r = new Raindrop[n];  //creates an array of using the Raindrop class
 Catcher catcher;  //declares the variable catcher as the catcher class
 
@@ -21,6 +21,7 @@ void draw() {
   for (int i = 0; i < index; i++) {
     r[i].display();  //the raindrop will be displayed
     r[i].move();  //the raindrop will move
+    r[i].speedChange();
     catcher.catchDrop(r[i]);  //the catcher will "catch" the raindrop and the raindrop will disappear 
   } 
   catcher.display();  //the catcher is displayed
