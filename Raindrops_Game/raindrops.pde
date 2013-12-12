@@ -2,7 +2,7 @@ class Raindrop {
   PVector loc;
   PVector vel;
   int d;
-  int initialv = 2;
+boolea initialv = 2;
 
   Raindrop() {
     loc = new PVector(random(width), d);
@@ -22,17 +22,8 @@ class Raindrop {
   }
 
   void speedChange () {
-    int secondv = 2*initialv;
-    if (score>=5) {
-      vel.y=secondv;
-    }
-    int thirdv = 2*secondv;
-    if (score>=10) {
-      vel.y=thirdv;
-    }
-    int fourthv = 2*thirdv;
-    if (score>=20) {
-      vel.y = fourthv;
+    if(score%=0){
+     vel.y=2*initialv;
     }
   }
 }
