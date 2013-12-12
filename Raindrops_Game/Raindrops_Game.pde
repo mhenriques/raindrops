@@ -9,7 +9,7 @@ Raindrop[] r = new Raindrop[n];  //creates an array of using the Raindrop class
 Catcher catcher;  //declares the variable catcher as the catcher class
 
 void setup() {
-  size(500, 700);  //defines the size of the display screen
+  size(500, 500);  //defines the size of the display screen
   for (int i = 0; i < r.length; i++) {
     r[i] = new Raindrop();  //starts the raindrop array
   } 
@@ -36,7 +36,7 @@ void draw() {
     oldTime=currentTime;  //resets the oldTime to currentTime
   }
   text(" "+score, width*.9, height*.9);  //displays score on bottom right hand corner
-  if (score==winScore) {
+  if (score>=winScore) {
     background(0);
     textSize(75);
     text("YOU WIN!!!", 75, height/2);
