@@ -4,7 +4,7 @@ class Catcher {
 
   Catcher() {
     loc = new PVector(mouseX, mouseY);
-    d = 20;
+    d = 35;
   }
 
   void display() {
