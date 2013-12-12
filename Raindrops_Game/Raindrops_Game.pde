@@ -41,7 +41,7 @@ void draw() {
   timeChange = currentTime - oldTime;  //define timeChange
   if (timeChange >= 2000) {
     if (index<r.length) { 
-      index++;  //allows only one raindrop to fall at a time
+      index++;  //allows only one raindrop to fall at a time every 2 seconds
     }
     oldTime=currentTime;  //resets the oldTime to currentTime
   }
