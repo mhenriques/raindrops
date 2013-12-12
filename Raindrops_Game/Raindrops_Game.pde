@@ -1,10 +1,20 @@
-int score;  //declare a
+/*The object of the game is to collect 20 raindrops by touching
+the falling white circles with the aqua circle that follows your
+mouse. Doing so will give you points. Points are recorded on the 
+score in the bottom right hand corner. Once your score reaches 
+5 points the speed at which the raindrops are falling at will 
+be doubled. The same will happen when your score reaches 10 
+points and then again at 15 points. When the score reaches 20 
+you have won the game!*/
+
+int score;  //declare variable score
 int currentTime;  //declare variable currentTime
 int oldTime;   //declare variable oldTime 
 int timeChange;  //declare variable timeChange
 int index;  //declare variable index
 int n = 50;  //declare variable n and define it to the number of raindrops you would like in the array
-int winScore = 20;
+int winScore = 20;  /*declare variable winScore and define it to the number of points 
+                    needed to win the game (must be smaller than value of variable n)*/
 Raindrop[] r = new Raindrop[n];  //creates an array of using the Raindrop class
 Catcher catcher;  //declares the variable catcher as the catcher class
 
@@ -37,9 +47,9 @@ void draw() {
   }
   text(" "+score, width*.9, height*.9);  //displays score on bottom right hand corner
   if (score>=winScore) {
-    background(0);
-    textSize(75);
-    text("YOU WIN!!!", 75, height/2);
+    background(0); //changes the background color to black
+    textSize(75);  //makes the text size bigger
+    text("YOU WIN!!!", 75, height/2);  //writes "YOU WIN!!!" on the display screen
   }
 }
 
