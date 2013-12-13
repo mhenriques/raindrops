@@ -3,19 +3,21 @@ class Raindrop {
   PVector vel;  //declare variable for speed
   int d;   //declare variable for ellipse diameter
   int initialv = 2;   //declare variable for the initial velocity of the raindrop in the y direction
+  PImage droplet;
   
   Raindrop() {
     loc = new PVector(random(width), d);  //define variable of location
     vel = new PVector(0, initialv);  //define variable for velocity with initialv variable
+    droplet = loadImage("droplet.png");
     if (vel.y<0) {
       vel.y*=-1;  //set direction of speed downward
     }
-    d=10;  //define variable for diameter of circle
+    d=20;  //define variable for diameter of circle
   }
 
   void display() {
     fill(255);  //define color of raindrops
-    ellipse(loc.x, loc.y, d, d);  //the raindrops will be white circles
+    image (droplet, loc.x, loc.y, d+5, d);  //the raindrops will be white circles
   } 
 
   void move() {
