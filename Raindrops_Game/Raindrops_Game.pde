@@ -45,7 +45,7 @@ void draw() {
     }
     oldTime=currentTime;  //resets the oldTime to currentTime
   }
-  text(" "+score, width*.9, height*.9);  //displays score on bottom right hand corner
+  text("Score "+score, width*.4, 50);  //displays score on bottom right hand corner
   if (score>=winScore) {
     background(0); //changes the background color to black
     textSize(75);  //makes the text size bigger
