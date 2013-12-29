@@ -12,10 +12,6 @@ class Catcher {
     ellipse(loc.x, loc.y, d, d);  //defines an ellipse that will be the catcher
   }
 
-  void update() {
-    loc.set(mouseX, mouseY);  //the catcher is updated on the display screen
-  }
-
   void catchDrop(Raindrop drop) {
     if (loc.dist(drop.loc) < d/2 + drop.d/2) {  //checks to see if catcher touched raindrops
       drop.loc.set(-width, height*10);  //moves raindrop off screen
