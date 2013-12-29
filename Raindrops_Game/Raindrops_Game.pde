@@ -29,6 +29,13 @@ void draw() {
   background(0, 30, 190);  //sets the background to a shade of blue
   text("Lives: "+lives, width*.7, 50); 
   text("Score: "+score, width*.4, 50);  //displays score on bottom right hand corner
+  if (start==false && lose==false && win==false) {
+    textAlign(CENTER);
+    textSize(20);
+    text("F THE RAINDROPS", width/2, 100);
+    ellipse(width/2,height/2,50,50);
+    text("stupid",width/2, height/2);
+  }
   if (start==true && lose==false && win==false) {
     for (int i = 0; i < index; i++) {
       r[i].display();  //the raindrop will be displayed
@@ -70,4 +77,5 @@ void draw() {
     text("YOU LOSE :(", 75, height/2);
   }
 }
+
 
