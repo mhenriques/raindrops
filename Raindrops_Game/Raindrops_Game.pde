@@ -10,6 +10,10 @@ int index;  //declare variable index
 int n = 50;  //declare variable n and define it to the number of raindrops you would like in the array
 int winScore = 20;  /*declare variable winScore and define it to the number of points needed to win the game (must be smaller than value of variable n)*/
 int lives = 3;
+int rectx = width/2;
+int recty = height/2;
+int rectw = 100;
+int recth = 100;
 boolean start = false;
 boolean lose = false;
 boolean win = false;
@@ -26,23 +30,27 @@ void setup() {
 }
 
 void draw() {
-  background(0, 30, 190);  //sets the background to a shade of blue
-  text("Lives: "+lives, width*.7, 50); 
-  text("Score: "+score, width*.4, 50);  //displays score on bottom right hand corner
+  background(0, 30, 190);
+
   if (start==false && lose==false && win==false) {
+    background(0, 30, 190);
+    fill(255);
     textAlign(CENTER);
     textSize(20);
     text("F THE RAINDROPS", width/2, 100);
-    ellipse(width/2,height/2,50,50);
-    text("stupid",width/2, height/2);
+    rectMode(CENTER);
+    rect(rectx, recty, rectw, recth);
+    text("stupid", width/2, height/2);
   }
   if (start==true && lose==false && win==false) {
+    background(0, 30, 190);
     for (int i = 0; i < index; i++) {
       r[i].display();  //the raindrop will be displayed
       r[i].move();  //the raindrop will move
       r[i].speedChange();  //the raindrop will double its speed after 5, 10, and 15 points
       catcher.display();
       catcher.catchDrop(r[i]);  //the catcher will "catch" the raindrop and the raindrop will disappear
+
       if (r[i].loc.y>=height) {
         lives=-1;
         r[i].loc.set(width*2, -height);
@@ -56,6 +64,8 @@ void draw() {
         }
       }
     }
+    text("Lives: "+lives, width*.7, 50); 
+    text("Score: "+score, width*.4, 50);  //displays score on bottom right hand corner
   }
 
   if (score>=winScore) {
@@ -64,8 +74,13 @@ void draw() {
   if (start==true && lose==false && win==true) {
     background(255);
     fill(0);
+    textAlign(CENTER);
     textSize(75);
-    text("YOU WIN!!!", 75, height/2);
+    text("YOU WIN!!", width/2, 150);
+    rectMode(CENTER);
+    rect(rectx, recty, rectw, recth);
+    textSize(10);
+    text("play again", width/2, height/2);
   }
   if (lives<=0) {
     lose=true;
@@ -73,9 +88,30 @@ void draw() {
   if (start==true && lose==true && win==false) {
     background(255);
     fill(0);
+    textAlign(CENTER);
     textSize(75);
-    text("YOU LOSE :(", 75, height/2);
+    text("YOU LOSE :(", width/2, 150);
+    rectMode(CENTER);
+    rect(rectx, recty, rectw, recth);
+    textSize(10);
+    text("try again", width/2, height/2);
   }
 }
 
+void mousePressed() {
+  if (start==false && lose==false && win==false && mouseX<rectx+rectw/2 && mouseX>rectx-rectw/2 && mouseY<recty+recth/2 && mouseY>recty-recth/2) {
+    start=true;
+  }
+  if (start==true && lose==false && win==true&&mouseX<rectx+rectw/2&&mouseX>rectx-rectw/2&& mouseY<recty+recth/2 && mouseY>recty-recth/2) {
+    score=0;
+    lives=3;
+    win=false;
+  }
+
+  if (start==true && lose==true&& win==false && mouseX<rectx+rectw/2 && mouseX>rectx-rectw/2 && mouseY<recty+recth/2 && mouseY>recty-recth/2) {
+    lives=3;
+    score=0;
+    lose=false;
+  }
+}
 
