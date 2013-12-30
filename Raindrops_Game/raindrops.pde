@@ -40,7 +40,7 @@ class Raindrop {
       vel.y=thirdv;  //when the score reaches 10 points, the speed of the raindrop will double
       text("Level 3", width*.2, 50);
     }
-    int fourthv = 2*thirdv;    //declare the fourth velocity the raindrop will run at (twice the speed as before)
+    float fourthv = 1.5*thirdv;    //declare the fourth velocity the raindrop will run at (twice the speed as before)
     if (score>=15) {
       vel.y = fourthv;  //when the score reaches 15 points, the speed of the raindrop will double
       text("Level 4", width*.2, 50);

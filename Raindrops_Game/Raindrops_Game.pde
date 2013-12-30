@@ -23,13 +23,9 @@ PImage sky;
 
 Raindrop[] r = new Raindrop[n];  //creates an array of using the Raindrop class
 Catcher catcher;  //declares the variable catcher as the catcher class
+
 void setup() {
-  for (int i = 0; i < r.length; i++) {
-    r[i] = new Raindrop();  //starts the raindrop array
-  } 
-  catcher = new Catcher();
-  textSize(20);  //sets the textSize to 20 pixels
-  start = false;
+    start = false;
   lose = false;
   win = false;
   desert = loadImage("DesertScene.jpg");
@@ -37,6 +33,11 @@ void setup() {
   sky = loadImage("sky.png");
   rectx = width/2;
   recty = height/2 +100;
+  for (int i = 0; i < r.length; i++) {
+    r[i] = new Raindrop();  //starts the raindrop array
+  } 
+  catcher = new Catcher();
+ 
 }
 void draw() {
   if (start==false) {
