@@ -7,7 +7,7 @@ class Raindrop {
   boolean caught = false;
   
   Raindrop() {
-    loc = new PVector(random(d/2, width-d/2), d);  //define variable of location
+    loc = new PVector(random(d/2, width-(d/2)), d);  //define variable of location
     vel = new PVector(0, initialv);  //define variable for velocity with initialv variable
     droplet = loadImage("droplet.png");
     if (vel.y<0) {

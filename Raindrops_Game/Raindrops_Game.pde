@@ -19,6 +19,7 @@ boolean start;
 boolean lose;
 boolean win;
 PImage desert;
+PImage sky;
 
 Raindrop[] r = new Raindrop[n];  //creates an array of using the Raindrop class
 Catcher catcher;  //declares the variable catcher as the catcher class
@@ -33,6 +34,7 @@ void setup() {
   win = false;
   desert = loadImage("DesertScene.jpg");
   size(desert.width, desert.height);
+  sky = loadImage("sky.png");
   rectx = width/2;
   recty = height/2 +100;
 }
@@ -54,7 +56,7 @@ void draw() {
     text("collecting water", rectx, recty+10);
   }
   else if (start==true && lose==false) {
-    background(0, 30, 190);
+    background(desert);
     for (int i = 0; i < index; i++) {
       r[i].display();  //the raindrop will be displayed
       r[i].move();  //the raindrop will move
@@ -80,25 +82,29 @@ void draw() {
     win=true;
     if (win==true) {
       start = false;
-      background(255);
+      background(desert);
       fill(0);
       textAlign(CENTER);
       textSize(75);
-      text("YOU WIN!!", width/2, 150);
+      text("You have survived the day!", width/2, 150);
       rect(rectx, recty, rectw, recth);
       textSize(10);
-      text("play again", width/2, height/2);
+      text("still thirsty?",rectx, recty-10);
+      text("play again!", rectx,recty+10);
     }
   }
   if (lose==true) {
-    background(255);
+    background(sky);
     fill(0);
     textAlign(CENTER);
-    textSize(75);
-    text("YOU LOSE ", width/2, 150);
+    textSize(30);
+    text("you became severly dehydrated and passed out.", width/2, 150);
+    fill(255);
     rect(rectx, recty, rectw, recth);
-    textSize(10);
-    text("trecty again", width/2, height/2);
+    textSize(20);
+    fill(0,30,190);
+    text("good luck surviving.",rectx, recty-10);
+    text("try again?", rectx, recty+10);
   }
 }
 void mousePressed() {
