@@ -13,36 +13,45 @@ int winScore = 20;  /*declare variable winScore and define it to the number of p
 int lives = 3;
 int rectx;
 int recty;
-int rectw = 100;
+int rectw = 200;
 int recth = 100;
 boolean start;
 boolean lose;
 boolean win;
+PImage desert;
+
 Raindrop[] r = new Raindrop[n];  //creates an array of using the Raindrop class
 Catcher catcher;  //declares the variable catcher as the catcher class
 void setup() {
-  size(500, 500);  //defines the size of the display screen
   for (int i = 0; i < r.length; i++) {
     r[i] = new Raindrop();  //starts the raindrop array
   } 
   catcher = new Catcher();
   textSize(20);  //sets the textSize to 20 pixels
-  rectx = width/2;
-  recty = height/2;
   start = false;
   lose = false;
   win = false;
+  desert = loadImage("DesertScene.jpg");
+  size(desert.width, desert.height);
+  rectx = width/2;
+  recty = height/2 +100;
 }
 void draw() {
   if (start==false) {
-    background(0, 30, 190);
+    background(desert);
     fill(255);
     textAlign(CENTER);
-    textSize(20);
-    text("F THE RAINDROPS", width/2, 100);
+    textSize(40);
+    text("Survive in the Desert", width/2, 100);
     rectMode(CENTER);
     rect(rectx, recty, rectw, recth);
-    text("stupid", width/2, height/2);
+    textSize(20);
+    text("You're stranded in the desert.", width/2, 175);
+    text("It's been four days and you think you see small raindrops falling.", width/2, 200);
+    text("Collect all the raindrops for the chance to survive", width/2, 225);
+    fill(0, 30, 190);
+    text("click to start", rectx, recty-10);
+    text("collecting water", rectx, recty+10);
   }
   else if (start==true && lose==false) {
     background(0, 30, 190);
@@ -113,3 +122,4 @@ void mousePressed() {
     score=0;
   }
 }
+

@@ -5,6 +5,7 @@ class Raindrop {
   int initialv = 2;   //declare variable for the initial velocity of the raindrop in the y direction
   PImage droplet;
   boolean caught = false;
+  
   Raindrop() {
     loc = new PVector(random(d/2, width-d/2), d);  //define variable of location
     vel = new PVector(0, initialv);  //define variable for velocity with initialv variable
