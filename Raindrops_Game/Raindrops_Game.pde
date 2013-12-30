@@ -85,10 +85,12 @@ void draw() {
       background(desert);
       fill(0);
       textAlign(CENTER);
-      textSize(75);
+      textSize(30);
       text("You have survived the day!", width/2, 150);
+      fill(255);
       rect(rectx, recty, rectw, recth);
-      textSize(10);
+      textSize(20);
+      fill(0,30,190);
       text("still thirsty?",rectx, recty-10);
       text("play again!", rectx,recty+10);
     }
