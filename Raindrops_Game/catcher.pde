@@ -1,17 +1,19 @@
 class Catcher {
-  PVector loc;  //declare variable for location of catcher
-  int d;   //declare variable for diameter of catcher
+  PVector loc;  //declare variables
+  int d;   
+  PImage canteen;
+
   Catcher() {
     loc = new PVector(mouseX, mouseY);  //define location variable
-    d = 35;  //define diameter variable
+    d = 45;  //define catcher size
+    canteen = loadImage("canteen.jpg");
   }
   void move()
   {
     loc.set(mouseX, mouseY);
   }
   void display() {  //display the catcher on the screen
-    fill(130, 250, 240);  //define color of catcher
-    ellipse(loc.x, loc.y, d, d);  //defines an ellipse that will be the catcher
+    image(canteen,loc.x, loc.y, d, d); 
   }
   void catchDrop(Raindrop drop) {
     if (loc.dist(drop.loc) < d/2 + drop.d/2) {  //checks to see if catcher touched raindrops
@@ -21,7 +23,7 @@ class Catcher {
       score++;  //increase the score by one point
     }
   }
-  void miss(Raindrop drop) {
+  void miss(Raindrop drop) {  //if the canteen misses a raindrop a life is lost and the raindrop is moved to a location off the screen
     if (drop.loc.y>=height) {
       lives--;
       drop.caught = true;
@@ -34,3 +36,4 @@ class Catcher {
     }
   }
 }
+

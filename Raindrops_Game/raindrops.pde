@@ -15,9 +15,8 @@ class Raindrop {
     }
     d=20;  //define variable for diameter of circle
   }
-  void display() {
-    fill(255);  //define color of raindrops
-    image (droplet, loc.x, loc.y, d+5, d);  //the raindrops will be white circles
+  void display() {  //displays the raindrops
+    image (droplet, loc.x, loc.y, d+5, d);
   } 
   void move() {
     if (!caught)
