@@ -104,7 +104,7 @@ void draw() {
     fill(0);
     textAlign(CENTER);
     textSize(30);
-    text("you became severly dehydrated and passed out.", width/2, 150);
+    text("you became severely dehydrated and passed out.", width/2, 150);
     fill(255);
     rect(rectx, recty, rectw, recth);  //restart button 
     textSize(20);
