@@ -24,7 +24,7 @@ boolean win;
 PImage desert;
 PImage sky;
 
-Raindrop[] r = new Raindrop[n];  //creates an array of using the Raindrop class
+Raindrop[] r = new Raindrop[n];  //creates an array using the Raindrop class
 Catcher catcher;  //declares the variable catcher as the catcher class
 
 void setup() {
@@ -42,31 +42,31 @@ void setup() {
   catcher = new Catcher();
  
 }
-void draw() {
-  if (start==false) {
+void draw() { 
+  if (start==false) {  //start screen
     background(desert);  //defines background picture
     fill(255);
     textAlign(CENTER);
     textSize(40);
     text("Survive in the Desert", width/2, 100);  //title of game
     rectMode(CENTER);
-    rect(rectx, recty, rectw, recth);
+    rect(rectx, recty, rectw, recth);  //start button
     textSize(20);
     text("You're stranded in the desert.", width/2, 175);  //background story of the game
     text("It's been four days and you think you see small raindrops falling.", width/2, 200);
     text("Collect all the raindrops for the chance to survive another day.", width/2, 225);
     fill(0, 30, 190);
-    text("click to start", rectx, recty-10);  //start button
+    text("click to start", rectx, recty-10); 
     text("collecting water", rectx, recty+10);
   }
-  else if (start==true && lose==false) {
+  else if (start==true && lose==false) {  //playing screen
     background(desert);
     for (int i = 0; i < index; i++) {
       r[i].display();  //the raindrop will be displayed
       r[i].move();  //the raindrop will move
       r[i].speedChange();  //the raindrop will double its speed after 5, 10, and 15 points
-      catcher.catchDrop(r[i]);  //the catcher will "catch" the raindrop and the raindrop will disappear
-      catcher.miss(r[i]);
+      catcher.catchDrop(r[i]);  //if the catcher catches the raindrop score increases and 
+      catcher.miss(r[i]);  //if the catcher misses the raindrop 
     }
     catcher.display();
     catcher.move();
@@ -118,7 +118,7 @@ void mousePressed() {
     start=true;
     timeChange = millis()+2000;
   }
-  if (start==false && lose==false && win==true &&mouseX<rectx+rectw/2&&mouseX>rectx-rectw/2&& mouseY<recty+recth/2 && mouseY>recty-recth/2) {  //if the mouse is clicked on the box on the win screen the game is restarted
+  if (start==false && lose==false && win==true && mouseX<rectx+rectw/2 && mouseX>rectx-rectw/2 && mouseY<recty+recth/2 && mouseY>recty-recth/2) {  //if the mouse is clicked on the box on the win screen the game is restarted
     timeChange = millis()+2000;
     win=false;
     start=true;

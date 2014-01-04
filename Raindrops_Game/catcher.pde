@@ -6,12 +6,12 @@ class Catcher {
   Catcher() {
     loc = new PVector(mouseX, mouseY);  //define location variable
     d = 45;  //define catcher size
-    canteen = loadImage("canteen.jpg");
+    canteen = loadImage("canteen.gif");
   }
-  void move()
-  {
+  void move(){
     loc.set(mouseX, mouseY);
   }
+  
   void display() {  //display the catcher on the screen
     image(canteen,loc.x, loc.y, d, d); 
   }
@@ -27,11 +27,11 @@ class Catcher {
     if (drop.loc.y>=height) {
       lives--;
       drop.caught = true;
-      drop.loc.set(width*2, -height);
-      drop.vel.set(0, 0);
+      drop.loc.set(width*2, -height);  //moves raindrop off the screen
+      drop.vel.set(0, 0); //stops raindrop in the new position
     } 
-    if (lives==0) {
-      lose=true;
+    if (lives==0) { //if all lives are lost, lose screen is initiated
+      lose = true;
       start = false;
     }
   }

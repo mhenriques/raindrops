@@ -1,8 +1,9 @@
 class Raindrop {
-  PVector loc;  //declare variable for location
-  PVector vel;  //declare variable for speed
-  int d;   //declare variable for ellipse diameter
-  int initialv = 2;   //declare variable for the initial velocity of the raindrop in the y direction
+  //declare and define variables (some)
+  PVector loc;  
+  PVector vel;  
+  int d;   
+  int initialv = 2;  
   PImage droplet;
   boolean caught = false;
   
@@ -13,7 +14,7 @@ class Raindrop {
     if (vel.y<0) {
       vel.y*=-1;  //set direction of speed downward
     }
-    d=20;  //define variable for diameter of circle
+    d=20;  //define size of the raindrop
   }
   void display() {  //displays the raindrops
     image (droplet, loc.x, loc.y, d+5, d);
@@ -21,11 +22,11 @@ class Raindrop {
   void move() {
     if (!caught)
     {
-      loc.add(vel);  //the raindrops will move downward
+      loc.add(vel);  //the raindrops will move downward if they are not caught
     }
   }
   void speedChange () {
-    textSize(20);
+    textSize(20);  //define "Level" text size
     int secondv = 2*initialv;    //declare the second velocity the raindrop will run at (twice the speed as before)
     if (score<5) {
       text("Level 1", width*.2, 50);
@@ -39,7 +40,7 @@ class Raindrop {
       vel.y=thirdv;  //when the score reaches 10 points, the speed of the raindrop will double
       text("Level 3", width*.2, 50);
     }
-    float fourthv = 1.5*thirdv;    //declare the fourth velocity the raindrop will run at (twice the speed as before)
+    int fourthv = 2*thirdv;    //declare the fourth velocity the raindrop will run at (twice the speed as before)
     if (score>=15) {
       vel.y = fourthv;  //when the score reaches 15 points, the speed of the raindrop will double
       text("Level 4", width*.2, 50);
